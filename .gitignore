@@ -1,0 +1,12 @@
+dist
+node_modules
+.wrangler
+.vercel
+.DS_Store
+.env
+.env*.local
+.shopify/
+database/
+shopify.*.toml
+prisma/client/*
+_developer/types/

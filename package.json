@@ -1,0 +1,49 @@
+{
+  "name": "fullstack",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "pracht build",
+    "dev": "pracht dev",
+    "start": "node dist/server/server.js",
+    "update": "ncu -u",
+    "pretty": "prettier --write ./",
+    "-----> Tunnel <-----": "",
+    "cloudflare": "cloudflared tunnel --url localhost:3000",
+    "-----> Shopify <-----": "",
+    "g:install": "npm i -g @shopify/cli@latest",
+    "update:config": "node _developer/tomlWriter.js; npm run pretty; shopify app deploy;",
+    "-----> Database <-----": "",
+    "pg:create": "mkdir database; pg_ctl -D database init",
+    "pg:start": "pg_ctl -D database start",
+    "pg:stop": "pg_ctl -D database stop",
+    "db:create": "mkdir database; mysqld --initialize-insecure --datadir=./database",
+    "db:start": "mysqld --datadir=./database",
+    "db:stop": "mysqladmin shutdown",
+    "-----> Reserved Scripts <-----": "",
+    "prepare": "npx prisma generate"
+  },
+  "dependencies": {
+    "@pracht/adapter-node": "^0.2.4",
+    "@pracht/core": "^0.8.1",
+    "@prisma/adapter-mariadb": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "@shopify/shopify-api": "^13.0.0",
+    "cryptr": "^6.4.0",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@pracht/cli": "^1.5.1",
+    "@pracht/vite-plugin": "^0.4.4",
+    "@shopify/app-bridge-types": "^0.7.1",
+    "@shopify/polaris-types": "latest",
+    "npm-check-updates": "^22.2.7",
+    "preact": "^10.29.2",
+    "preact-render-to-string": "^6.7.0",
+    "prettier": "^3.8.4",
+    "prisma": "^7.8.0",
+    "vite": "^8.0.16"
+  }
+}
